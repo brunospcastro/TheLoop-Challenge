@@ -1,9 +1,7 @@
 package com.loop.springboot.app.model;
 
 import javax.persistence.*;
-
 import org.hibernate.annotations.GenericGenerator;
-
 import lombok.Data;
 
 @Entity
