@@ -24,15 +24,25 @@ public class PriceRestController {
     PriceRepository2 priceRepository;
 
     @GetMapping("/getInfo")
-    @ResponseBody
     public Price getPrice(@RequestParam(name = "price") float price){
         return priceRepository.findByPrice(price);
     }
 
     @GetMapping("/getPrice")
-    @ResponseBody
     public List<Price> getPrice1(@RequestParam(name = "brand_id") int brand_id, @RequestParam(name = "product_id") int product_id, @RequestParam(name = "date") String date){
-        return priceRepository.findByParams(brand_id, product_id, date);
+        List<Price> list = priceRepository.findByParams(brand_id, product_id, date);
+        int max = 0;
+        for (Price price : list) {
+            if (price.getPriority() >= max) max = price.getPriority();
+        }
+        for (Price price : list) {
+            if (price.getPriority() != max) list.remove(price);
+        }
+
+        //System.out.println(list);
+        //System.out.println(max);
+        return list;
+
     }
 
     
