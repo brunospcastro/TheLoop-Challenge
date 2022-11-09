@@ -17,6 +17,7 @@ public class PriceService {
     @Autowired
     private PriceRepository priceRepository;
 
+    /* 
     public boolean savePrice(Price price){
         boolean isSaved = false;
         int result = priceRepository.insertPrice(price);
@@ -25,4 +26,5 @@ public class PriceService {
         }
         return isSaved;
     }
+    */
 }

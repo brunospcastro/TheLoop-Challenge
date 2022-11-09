@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
 
+@Entity
 @Data
 @Table(name="Brand")
 public class Brand {

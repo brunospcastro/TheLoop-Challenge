@@ -18,11 +18,13 @@ public class PriceRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    /* 
     public int insertPrice(Price price){
         String sql = "INSERT INTO Price (brand_id, priority, product_id, price, curr, start_date, end_date) VALUES (?,?,?,?,?,?,?)";
         return jdbcTemplate.update(sql,price.getBrand_id(),price.getPriority(),price.getProduct_id(),price.getPrice(),
                                 price.getCurr(),price.getStart_date(), price.getEnd_date());
     }
+    */
 
 
 }

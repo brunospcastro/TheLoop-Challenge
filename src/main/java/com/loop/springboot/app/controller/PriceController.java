@@ -24,11 +24,13 @@ public class PriceController {
         this.priceService = priceService;
     }
 
+    /* 
     Price price = new Price(1, 0, 1, 1,"euro", "2020-06-14 00.00.00","2020-06-14 00.00.00");
     @RequestMapping(value = "/insert")
     public String insertPrice() {
         priceService.savePrice(price);
         return "Inserted";
     }
+    */
 
 }
