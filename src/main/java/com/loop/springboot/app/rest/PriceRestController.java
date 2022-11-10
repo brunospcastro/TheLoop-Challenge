@@ -14,22 +14,17 @@ import com.loop.springboot.app.service.PriceService;
 @RequestMapping(path = "/api/price")
 public class PriceRestController {
 
-    @Autowired
-    PriceRepository priceRepository;
-
     private final PriceService priceService;
-
+    
     @Autowired
     public PriceRestController(PriceService priceService) {
         this.priceService = priceService;
     }
 
-    //test
-    @GetMapping("/getInfo")
-    public Price getInfo(@RequestParam(name = "price") float price){
-        return priceRepository.findByPrice(price);
-    }
+    @Autowired
+    PriceRepository priceRepository;
 
+    
     @GetMapping("/getPrice")
     public List<Price> getPrice(@RequestParam(name = "brand_id") int brand_id, @RequestParam(name = "product_id") int product_id, @RequestParam(name = "date") String date){
         return priceService.getPriceService(brand_id, product_id, date);

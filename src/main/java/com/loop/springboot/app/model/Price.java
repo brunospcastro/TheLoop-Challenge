@@ -36,5 +36,9 @@ public class Price{
 
     @Column(name="end_date")
     private String end_date;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tax_id")
+    private Tax tax;
 }
 
