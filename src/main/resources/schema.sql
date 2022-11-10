@@ -16,5 +16,7 @@ CREATE TABLE IF NOT EXISTS `Price` (
   FOREIGN KEY(brand_id) REFERENCES Brand(id) 
 );
 
+
+
  
 
