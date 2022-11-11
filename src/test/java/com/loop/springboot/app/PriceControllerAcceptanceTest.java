@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 public class PriceControllerAcceptanceTest {
 
     @LocalServerPort
-    int randomServerPort = 8081;
+    int serverPort = 8081;
 
     private RestTemplate restTemplate;
     private String url;
@@ -26,7 +26,7 @@ public class PriceControllerAcceptanceTest {
     @BeforeEach
     void setUp() {
         restTemplate = new RestTemplate();
-        url = "http://localhost:" + randomServerPort + "/api/price/getPrice";
+        url = "http://localhost:" + serverPort + "/api/price/getPrice";
     }
 
 
@@ -35,7 +35,6 @@ public class PriceControllerAcceptanceTest {
     void test1() throws Exception {
         ResponseEntity responseEntity = restTemplate.getForEntity(url + "?brand_id=1&product_id=35455&date=2020-06-14 10:00:00", List.class);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        System.out.println("Teste: "+responseEntity.getStatusCode());
         List list = (List) responseEntity.getBody();
         int id = (int) ((HashMap) list.get(0)).get("id");
         assertEquals(1, id);
@@ -45,7 +44,7 @@ public class PriceControllerAcceptanceTest {
     @Test
     void test2() throws Exception {
         ResponseEntity responseEntity = restTemplate.getForEntity(url + "?brand_id=1&product_id=35455&date=2020-06-14 16:00:00", List.class);
-        //assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         List list = (List) responseEntity.getBody();
         int id = (int) ((HashMap) list.get(0)).get("id");
         assertEquals(2, id);
